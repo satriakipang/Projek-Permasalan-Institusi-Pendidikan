@@ -29,7 +29,7 @@ Proyek ini dirancang dengan cakupan:
 5. **Penarikan Insight dan Rekomendasi Strategis**
 
 ### Persiapan
-**Sumber data:** [Dataset Karyawan Jaya Jaya Maju](https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/README.md)
+**Sumber data:** [Dataset Jaya Jaya Institut](https://github.com/dicodingacademy/dicoding_dataset/blob/main/students_performance/README.md)
 
 **Setup environment:**
 - Setup Environment - Anaconda
