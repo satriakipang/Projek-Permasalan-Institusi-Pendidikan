@@ -53,9 +53,9 @@ pip install imbalanced_learn imblearn matplotlib numpy pandas scikit_learn seabo
 
 ## Business Dashboard
 Dashboard dapat diakses dengan link berikut:
-🔗 [Dashboard Jaya Jaya Maju Institut](https://lookerstudio.google.com/reporting/b76909a3-8933-4bf7-a35c-4f59afbceb94)
+🔗 [Dashboard Jaya Jaya Institut](https://lookerstudio.google.com/reporting/b76909a3-8933-4bf7-a35c-4f59afbceb94)
 
-![Dashboard Jaya Jaya Maju Institut](https://raw.githubusercontent.com/satriakipang/Projek-Permasalan-Institusi-Pendidikan/refs/heads/main/fransiskus_ricardo%20-%20dashboard.jpg)
+![Dashboard Jaya Jaya Institut](https://raw.githubusercontent.com/satriakipang/Projek-Permasalan-Institusi-Pendidikan/refs/heads/main/fransiskus_ricardo%20-%20dashboard.jpg)
 
 Pada dashboard di digunakan untuk:
 * Memahami pola dan faktor yang mempengaruhi **Dropout** siswa.
