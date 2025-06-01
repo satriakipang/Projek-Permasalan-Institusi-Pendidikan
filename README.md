@@ -53,59 +53,82 @@ pip install imbalanced_learn imblearn matplotlib numpy pandas scikit_learn seabo
 
 ## Business Dashboard
 Dashboard dapat diakses dengan link berikut:
-🔗 [Dashboard HR](https://lookerstudio.google.com/reporting/6bb4df10-969c-4c7c-883a-bbfbb397e7fe)
+🔗 [Dashboard Jaya Jaya Maju Institut](https://lookerstudio.google.com/reporting/b76909a3-8933-4bf7-a35c-4f59afbceb94)
 
-![Dashboard HR](https://github.com/satriakipang/Submission-Pertama-Menyelesaikan-Permasalan-HR/blob/main/fransiskus_ricardo%20-%20dashboard.jpg?raw=true)
+![Dashboard Jaya Jaya Maju Institut](https://raw.githubusercontent.com/satriakipang/Projek-Permasalan-Institusi-Pendidikan/refs/heads/main/fransiskus_ricardo%20-%20dashboard.jpg)
 
 Pada dashboard di digunakan untuk:
-* Memahami pola dan faktor yang mempengaruhi **attrition (resign)** karyawan.
-* Memberikan insight data visual bagi manajemen untuk mengambil keputusan strategis terkait retensi.
+* Memahami pola dan faktor yang mempengaruhi **Dropout** siswa.
+* Memberikan insight data visual bagi kampus untuk mengambil keputusan strategis terkait siswa yang berpotensi Dropout.
 
 Bagian-Bagian Dashboard
-1. **Age vs Attrition**
-* Mayoritas resign terjadi di usia muda (sekitar 26–35 tahun).
-* Seiring bertambahnya usia, jumlah resign menurun drastis.
+1. **Distribusi Status Mahasiswa**
+* Dari total **3.630 data mahasiswa**, sebanyak **60,9%** berhasil lulus (Graduate), dan **39,1%** mengalami dropout.
+* Insight: Angka dropout cukup tinggi dan memerlukan perhatian khusus.
 
-2. **Environment Satisfaction vs Attrition**
-* Tingkat kepuasan lingkungan kerja yang rendah (tingkat 1 dan 2) memiliki jumlah resign lebih tinggi.
-* Semakin tinggi kepuasan, semakin rendah tingkat resign.
+2. **Distribusi Gender**
+* Mahasiswa laki-laki mendominasi populasi (**65,6%**), sedangkan perempuan **34,4%**.
+* Insight: Distribusi ini penting sebagai konteks demografis dan dapat dikaitkan dengan dropout jika dikombinasikan dengan variabel lain.
 
-3. **Total Working Years vs Attrition**
-* Karyawan dengan pengalaman kerja 0–10 tahun lebih banyak resign.
-* Terlihat lonjakan resign di tahun ke-1 dan ke-5, mungkin karena kontrak atau masa evaluasi.
+3. **Admission Grade vs Status**
+* Mahasiswa dengan **nilai masuk (admission grade) tinggi** cenderung lebih banyak lulus.
+* Terlihat peningkatan kelulusan pada grade **99–100**, sementara dropout lebih banyak pada rentang nilai menengah ke bawah.
+* Insight: Nilai masuk bisa menjadi indikator awal risiko akademik.
 
-4. **Distance From Home vs Attrition**
-* Resign lebih banyak terjadi pada karyawan yang tinggal dekat kantor (jarak 1–5).
-* Kemungkinan karena tenaga muda atau first jobber yang lebih rentan pindah kerja.
+4. **Scholarship Holder vs Status**
+* Mahasiswa **penerima beasiswa** memiliki tingkat kelulusan lebih tinggi.
+* Dropout lebih sering terjadi pada mahasiswa **non-penerima beasiswa**.
+* Insight: Beasiswa berpotensi menjadi intervensi efektif untuk menurunkan angka dropout.
 
-5. **Persentase Resign (Pie Chart)**
-* **16,9%** karyawan resign.
-* **83,1%** tetap bekerja.
-* Ini menunjukkan tingkat turnover yang moderat tapi perlu perhatian.
+5. **Mata Kuliah Semester 1 vs Status**
+* Dropout banyak terjadi pada mahasiswa yang mengambil mata kuliah tertentu di semester awal (contoh: kode 17 dan 18).
+* Insight: Beban dan tingkat kesulitan semester awal perlu dievaluasi karena memengaruhi keberlanjutan studi.
 
-6. **Monthly Income vs Age vs Attrition**
-* Distribusi gaji berdasarkan usia menunjukkan bahwa resign lebih dominan pada usia muda dengan gaji lebih rendah.
-* Ini mengindikasikan perlunya strategi retensi pada kelompok ini.
+6. **Mata Kuliah Semester 2 vs Status**
+* Serupa dengan semester 1, terlihat dominasi dropout pada mata kuliah dengan kode tertentu, terutama **kode 11–13**.
+* Insight: Monitoring mata kuliah spesifik bisa menjadi strategi preventif dalam mengurangi dropout.
 
-7. **Model ML**
-Pada dashboard diberikan Tabel prediksi model ML yang dapat membantu team HR
-* Masing-masing baris berisi atribut karyawan dan kolom:
-  * `Attrition (Actual)` = 1 berarti benar-benar resign.
-  * `Predicted Attrition` = 1 jika model memprediksi akan resign.
-  * `Risk (Probability)` = tingkat risiko (0–1), contoh: 0.99 = 99% kemungkinan resign.
+
+
+## Menjalankan Sistem Machine Learning
+Prototipe machine learning ini dibangun menggunakan platform Streamlit untuk memudahkan proses deployment. Aplikasi ini memungkinkan pengguna memasukkan sejumlah fitur yang diperlukan, kemudian memberikan hasil prediksi mengenai kemungkinan seorang siswa mengalami dropout.
+
+*Penggunaan Secara Online*
+
+1. Akses aplikasi melalui Streamlit Cloud di tautan berikut:
+   [https://projek-permasalan-institusi-pendidikan-dicoding.streamlit.app/](https://projek-permasalan-institusi-pendidikan-dicoding.streamlit.app/)
+2. Isi seluruh input fitur yang tersedia pada antarmuka aplikasi.
+3. Klik tombol **Prediksi Status** untuk melihat hasil prediksi status dropout siswa.
+
+*Penggunaan Secara Lokal (Offline)*
+
+1. Jalankan aplikasi dengan perintah berikut di terminal:
+
+   ```bash
+   streamlit run app.py  
+   ```
+2. Masukkan nilai-nilai fitur pada form input yang muncul di antarmuka.
+3. Tekan tombol **Prediksi Status** untuk memperoleh hasil prediksi.
+
+![Deployment Streamlit](https://raw.githubusercontent.com/satriakipang/Projek-Permasalan-Institusi-Pendidikan/refs/heads/main/fransiskus_ricardo%20-%20deployment.png) 
+---
 
 
 
 ## Conclusion
-1. **Gaji rendah, jarak rumah jauh, dan pengalaman kerja sedikit adalah kombinasi utama yang mendorong karyawan keluar.**
-2. **Usia muda dan status lajang merupakan segmen yang lebih rentan untuk resign.**
-3. **Lembur dan rendahnya sangat berkorelasi dengan attrition.** 
-4. **Perlu perhatian khusus terhadap departemen Sales, karena tingka attrition yang tinggi.**
-5. **Pegawai yang mengalami attrition (Mengundurkan diri) rerata bekerja selama 8 tahun.**
+1. **Sekitar 1.419 mahasiswa tercatat tidak menyelesaikan studi (dropout) di Jaya Jaya Institut.**
+2. **Faktor utama yang berkontribusi terhadap dropout adalah: Sedikitnya jumlah mata kuliah yang lulus, terutama di semester 1 dan 2, Nilai akademik yang rendah di kedua semester, Nilai masuk (admission grade) yang rendah, Riwayat pendidikan sebelumnya.**
+3. **Tingkat dropout di Jaya Jaya Institut adalah sekitar 39%, yang cukup tinggi dan perlu perhatian.** 
+4. **Mayoritas mahasiswa yang dropout adalah belum menikah (single).**
+5. **Mahasiswa yang dropout umumnya berada di rentang usia 22–25 tahun.**
 
-### Rekomendasi Action Items (Optional)
-* **Revisi kompensasi**, khususnya untuk karyawan muda dan berpenghasilan rendah.
-* **Program retensi dan engagement** untuk karyawan lajang dan baru.
-* **Fleksibilitas kerja atau subsidi transportasi** untuk karyawan yang tinggal jauh dari kantor.
-* **Kurangi lembur** dan **tingkatkan kepuasan kerja** melalui survei dan perbaikan lingkungan kerja.
-* Fokus pengembangan SDM di departemen dan peran dengan tingkat attrition tinggi.
+### Rekomendasi Action Items 
+Berikut adalah **tiga rekomendasi profesional** berdasarkan hasil analisis data dropout di Jaya Jaya Institut:
+1. **Pendampingan Adaptasi untuk Mahasiswa Pindahan**
+   Mahasiswa pindahan memiliki proporsi dropout yang signifikan. Disarankan agar institusi menyediakan program orientasi dan konseling khusus guna membantu mereka beradaptasi dengan lingkungan akademik dan sistem pembelajaran yang baru.
+
+2. **Program Intervensi Akademik Dini**
+   Data menunjukkan bahwa performa akademik di semester pertama berpengaruh besar terhadap potensi dropout. Maka, institusi perlu mengidentifikasi mahasiswa dengan nilai rendah sejak dini dan memberikan bimbingan belajar atau kelas remedial secara proaktif.
+
+3. **Monitoring Berkala terhadap Kinerja Akademik Mahasiswa**
+   Melakukan evaluasi berkala terhadap capaian akademik setiap semester, terutama pada mata kuliah inti, untuk mendeteksi penurunan performa dan memberikan intervensi sebelum risiko dropout meningkat.
